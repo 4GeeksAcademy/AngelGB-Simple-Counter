@@ -28,13 +28,14 @@ const Home = () => {
 				</div>
 			</div>
 		)
-
 	}
 	const Guardado = () => {
-		const imputValue = imputRef.current.value;
+		let imputValue = parseInt(imputRef.current.value);
+		if (imputValue < 5) {
+		  imputValue = 5;
+		}
 		countContrareloj = imputValue
 		Iniciarcontrareloj()
-
 	}
 	const Iniciarcontrareloj = () => {
 
@@ -44,6 +45,15 @@ const Home = () => {
 			let countCen2 = Math.floor((countContrareloj / 100) % 10);
 			let countDec2 = Math.floor((countContrareloj / 10) % 10);
 			let countUni2 = Math.floor((countContrareloj / 1) % 10);
+
+			countContrareloj--;
+
+			if (countContrareloj < 0) {
+				countContrareloj = 0
+				alert ("El tiempo llego a su fin")
+				Pausacontador()
+			}
+
 			root.render(
 				<div>
 					<Contador Uni={countUni2} Dec={countDec2} Cen={countCen2} Mil={countMil2} Decmil={countDecmil2} />
@@ -61,7 +71,7 @@ const Home = () => {
 				</div>
 			);
 
-			countContrareloj--;
+
 		}, 1000)
 		const Pausacontador = () => {
 			if (iniciado == true) {
