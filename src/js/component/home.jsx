@@ -18,7 +18,7 @@ const Home = () => {
 				<h1>Por favor ingresa desde que segundo quieres que empiece a retroceder</h1>
 				<div className="mb-3 row justify-content-center pt-4">
 					<div className="col-auto text-center">
-						<input type="number" ref={imputRef} className=" col-auto form-control" placeholder="Numero en segundos..." />
+						<input type="number" ref={imputRef} className=" col-auto form-control" placeholder="Minimo 5 seg..." />
 					</div>
 
 					<div className="col-auto text-center">
@@ -28,13 +28,12 @@ const Home = () => {
 				</div>
 			</div>
 		)
-
 	}
 	const Guardado = () => {
-		const imputValue = imputRef.current.value;
+		let imputValue = imputRef.current.value;
+		imputValue < 5 || imputValue === "" ? imputValue = 5 : imputValue
 		countContrareloj = imputValue
 		Iniciarcontrareloj()
-
 	}
 	const Iniciarcontrareloj = () => {
 
@@ -44,6 +43,15 @@ const Home = () => {
 			let countCen2 = Math.floor((countContrareloj / 100) % 10);
 			let countDec2 = Math.floor((countContrareloj / 10) % 10);
 			let countUni2 = Math.floor((countContrareloj / 1) % 10);
+
+			countContrareloj--;
+
+			if (countContrareloj < 0) {
+				countContrareloj = 0
+				alert ("El tiempo llego a su fin")
+				Pausacontador()
+			}
+
 			root.render(
 				<div>
 					<Contador Uni={countUni2} Dec={countDec2} Cen={countCen2} Mil={countMil2} Decmil={countDecmil2} />
@@ -61,7 +69,7 @@ const Home = () => {
 				</div>
 			);
 
-			countContrareloj--;
+
 		}, 1000)
 		const Pausacontador = () => {
 			if (iniciado == true) {
