@@ -3,7 +3,7 @@ import "/src/styles/index.css"
 import Contador from "./Contador";
 import root from "..";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faBackward, faRotateRight } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faBackward,} from "@fortawesome/free-solid-svg-icons";
 import Iniciarcontador from "./IniciarContador";
 
 const Home = () => {
@@ -89,7 +89,7 @@ const Home = () => {
 	}
 
 	return (
-		<div className="text-center">
+		<div className="text-center pt-5">
 			<h1 className="text-white pt-4">Bienvenido a la web</h1>
 			<h3 className="text-white">Por favor elija entre las opciones.</h3>
 			<div className="mt-4">

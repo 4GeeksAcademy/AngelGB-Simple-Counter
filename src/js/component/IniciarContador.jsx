@@ -56,7 +56,8 @@ const Iniciarcontador = () => {
         Iniciarcontador()
     };
     const Volver = () => {
-		clearInterval(contadoriniciado)
+		Pausacontador()
+        count = 0
 		iniciado = true
 		root.render(<Home />)
 	};
