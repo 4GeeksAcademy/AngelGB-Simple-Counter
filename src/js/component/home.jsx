@@ -18,7 +18,7 @@ const Home = () => {
 				<h1>Por favor ingresa desde que segundo quieres que empiece a retroceder</h1>
 				<div className="mb-3 row justify-content-center pt-4">
 					<div className="col-auto text-center">
-						<input type="number" ref={imputRef} className=" col-auto form-control" placeholder="Numero en segundos..." />
+						<input type="number" ref={imputRef} className=" col-auto form-control" placeholder="Minimo 5 seg..." />
 					</div>
 
 					<div className="col-auto text-center">
@@ -30,10 +30,8 @@ const Home = () => {
 		)
 	}
 	const Guardado = () => {
-		let imputValue = parseInt(imputRef.current.value);
-		if (imputValue < 5) {
-		  imputValue = 5;
-		}
+		let imputValue = imputRef.current.value;
+		imputValue < 5 || imputValue === "" ? imputValue = 5 : imputValue
 		countContrareloj = imputValue
 		Iniciarcontrareloj()
 	}

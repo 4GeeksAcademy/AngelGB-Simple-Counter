@@ -21,7 +21,7 @@ body {
 .contador div {
     font-size: 60px;
     line-height: 60px;
-    background: #101010;
+    background: rgb(47, 49, 49);
     color: white;
     padding: 10px;
     margin: 3px;
