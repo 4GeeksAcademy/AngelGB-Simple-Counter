@@ -11,11 +11,15 @@
 
 */
 body {
+    background-image: url("/src/img/2.jpeg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
     background-color: black;
+    background-attachment: fixed;
 }
 .contador {
     text-align: center;
-    background-color: black;
     justify-content: center;
 }
 .contador div {
